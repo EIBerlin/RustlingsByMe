@@ -4,20 +4,26 @@
 // `hour_of_day` is higher than 23.
 fn maybe_ice_cream(hour_of_day: u16) -> Option<u16> {
     // TODO: Complete the function body.
-    let mut ice_cream  = Some(5);
+    // let mut ice_cream  = Some(5);
 
-    match ice_cream.as_mut() {
-        Some(v) => {
-            if hour_of_day < 22 {
-                return Some(*v);
-            } else if hour_of_day <= 23 {
-                return Some(*v * 0);
-            } else {
-                return None;
-            }
-        },
-        None => {},
-    }
+    // match ice_cream.as_mut() {
+    //     Some(v) => {
+    //         if hour_of_day < 22 {
+    //             return Some(*v);
+    //         } else if hour_of_day <= 23 {
+    //             return Some(*v * 0);
+    //         } else {
+    //             return None;
+    //         }
+    //     },
+    //     None => {},
+    // }
+
+    let ice_cream: Option<u16> = match true {
+        _ if hour_of_day > 23 => None,
+        _ if hour_of_day < 22 => Some(5),
+        _                     => Some(0),
+    };
 
     return ice_cream;
 }
