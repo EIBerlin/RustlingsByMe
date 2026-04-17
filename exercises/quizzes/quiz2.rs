@@ -35,9 +35,16 @@ mod my_module {
                 Command::Trim => x.0.trim().to_string(),
                 Command::Append(n) => {
                     let mut bar = String::new();
-                    for i in 0..n {
+
+                    let mut i = 1;
+                    loop {
+                        if i > n {
+                            break;
+                        }
                         bar = bar + "bar";
+                        i += 1;
                     }
+
                     return [x.0.to_string(), bar].concat();
                 },
             }
