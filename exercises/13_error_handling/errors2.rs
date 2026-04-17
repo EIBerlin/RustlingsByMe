@@ -14,6 +14,13 @@
 // There are at least two ways to implement this that are both correct. But one
 // is a lot shorter!
 
+/**
+ * note: 
+ *  player buy item, that cost 5 tokens per item + 1 token for processing fee.
+ *  player type the quentity amount, that can be number or string.
+ *  if not a number, immediately return ParseIntError
+ */
+
 use std::num::ParseIntError;
 
 fn total_cost(item_quantity: &str) -> Result<i32, ParseIntError> {
@@ -21,7 +28,7 @@ fn total_cost(item_quantity: &str) -> Result<i32, ParseIntError> {
     let cost_per_item = 5;
 
     // TODO: Handle the error case as described above.
-    let qty = item_quantity.parse::<i32>();
+    let qty = item_quantity.parse::<i32>()?; // second options is using match 
 
     Ok(qty * cost_per_item + processing_fee)
 }
